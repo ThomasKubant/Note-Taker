@@ -3,13 +3,15 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+let deleteNoteBtn;
 
-if (window.location.pathname === '/notes') {
+if (window.location.pathname === '/C:/Users/thoma/Desktop/NoteTaker/Develop/public/notes.html') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
-  saveNoteBtn = document.querySelector('.save-note');
+  saveNoteBtn = document.querySelector('.saveBtn');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
+  deleteNoteBtn = document.querySelector('.deleteBtn')
 }
 
 // Show an element
@@ -172,11 +174,13 @@ const renderNoteList = async (notes) => {
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
-if (window.location.pathname === '/notes') {
+
+console.log(window.location.pathname)
+console.log(saveNoteBtn);
+if (window.location.pathname === '/C:/Users/thoma/Desktop/NoteTaker/Develop/public/notes.html') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
-
 getAndRenderNotes();
